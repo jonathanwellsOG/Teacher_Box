@@ -1,1 +1,1 @@
-### Multifunction pager for education ###
+### Multifunction pager for education.###
