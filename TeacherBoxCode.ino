@@ -44,17 +44,26 @@ void setup() {
 }
 
 void loop() {
-  String message = "Hello from AP ESP8266!";
-  udp.beginPacket(remoteIP, remotePort);
-  udp.write(message.c_str());
+ 
+  if (Serial.available() > 0) {
+    String str = Serial.readString();
+    str.trim();
+    Serial.println(str);
+      udp.beginPacket(remoteIP, remotePort);
+  udp.write(str.c_str());
   udp.endPacket();
-  
-  // Display sent message on OLED
   display.clearDisplay();
   display.setCursor(0, 0);
   display.print("Sent: ");
-  display.println(message);
+  display.println(str);
   display.display();
+  
+}
+  String message = "Hello from AP ESP8266!";
+
+  
+  // Display sent message on OLED
+
 
   delay(1000);  // Send message every 1 second
 }
