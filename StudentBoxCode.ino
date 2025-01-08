@@ -1,3 +1,4 @@
+
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 #include <Adafruit_SSD1306.h>
@@ -10,7 +11,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 const char *ssid = "ESP8266-AP";  // SSID of the Access Point (AP)
 const char *password = "12345678"; // Password for AP
-const string *studentName = "Test";
+const String studentName = "Test";
 WiFiUDP udp;
 int localPort = 1234;  // Port to listen for incoming messages
 
