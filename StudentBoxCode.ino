@@ -10,7 +10,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 const char *ssid = "ESP8266-AP";  // SSID of the Access Point (AP)
 const char *password = "12345678"; // Password for AP
-
+const string *studentName = "Test";
 WiFiUDP udp;
 int localPort = 1234;  // Port to listen for incoming messages
 
@@ -64,7 +64,8 @@ void loop() {
     // Display the received message on the OLED
     display.clearDisplay();
     display.setCursor(0, 0);
-    display.print("Received: ");
+    display.print(studentName);
+    display.setCursor(0, 16);
     display.println(incomingPacket);
     display.display();
   }
